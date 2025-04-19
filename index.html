@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro - Campos do Jordão</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --color-primary: #2c5e1a;
+            --color-primary-light: #3d7a2d;
+            --color-secondary: #8a4f22;
+            --color-secondary-light: #a36631;
+            --color-light: #f8f5e6;
+            --color-accent: #d7be69;
+            --color-dark: #1e3a13;
+            --color-grey: #6c757d;
+            --color-surface: #ffffff;
+            --color-surface-2: #f7f3e9;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --border-radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --backdrop-blur: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f0ead6;
+            color: var(--color-dark);
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Autumn-themed background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 100 100'%3E%3Cpath fill='%23783e1f' fill-opacity='0.05' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'%3E%3C/path%3E%3C/svg%3E"),
+                linear-gradient(135deg, rgba(240, 234, 214, 0.9) 0%, rgba(230, 219, 187, 0.9) 100%);
+            z-index: -2;
+        }
+        
+        /* Falling leaves animation */
+        @keyframes falling {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes sway {
+            0% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            100% { transform: translateX(-10px); }
+        }
+        
+        .falling-leaves-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            z-index: -1;
+            animation: falling linear infinite, sway ease-in-out infinite alternate;
+        }
+        
+        .leaf1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d35400' d='M30,50 C30,20 50,10 70,10 C90,20 90,40 90,50 C90,75 50,90 30,50 Z'%3E%3C/path%3E%3Cpath fill='%23a04000' d='M30,50 C30,25 50,25 50,50 C50,75 30,75 30,50 Z'%3E%3C/path%3E%3Cline x1='30' y1='50' x2='90' y2='50' stroke='%23a04000' stroke-width='2'/%3E%3C/svg%3E");
+            animation-duration: 12s, 3s;
+            left: 10%;
+        }
+        
+        .leaf2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23e74c3c' d='M10,50 C10,10 50,10 50,50 C50,90 90,90 90,50 C90,10 50,10 50,50 C50,90 10,90 10,50 Z'%3E%3C/path%3E%3Cpath fill='%23c0392b' d='M25,50 C25,25 50,25 50,50 C50,75 75,75 75,50 C75,25 50,25 50,50 C50,75 25,75 25,50 Z'%3E%3C/path%3E%3C/svg%3E");
+            animation-duration: 15s, 4s;
+            left: 25%;
+        }
+        
+        .leaf3 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23f39c12' d='M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z'%3E%3C/path%3E%3Cpath fill='%23e67e22' d='M50,25 C62.5,25 75,37.5 75,50 C75,62.5 62.5,75 50,75 C37.5,75 25,62.5 25,50 C25,37.5 37.5,25 50,25 Z'%3E%3C/path%3E%3Cpath fill='%23d35400' d='M30,50 L70,50 M50,30 L50,70' stroke='%23d35400' stroke-width='2'/%3E%3C/svg%3E");
+            animation-duration: 18s, 5s;
+            left: 40%;
+        }
+        
+        .leaf4 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23c0392b' d='M50,10 L90,50 L50,90 L10,50 Z'%3E%3C/path%3E%3Cpath fill='%23a04000' d='M50,30 L70,50 L50,70 L30,50 Z'%3E%3C/path%3E%3C/svg%3E");
+            animation-duration: 20s, 4s;
+            left: 60%;
+        }
+        
+        .leaf5 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23e67e22' d='M50,10 C90,40 90,85 50,90 C10,85 10,40 50,10 Z'%3E%3C/path%3E%3Cpath fill='%23d35400' d='M50,30 C70,50 70,70 50,75 C30,70 30,50 50,30 Z'%3E%3C/path%3E%3Cline x1='50' y1='10' x2='50' y2='90' stroke='%23a04000' stroke-width='2'/%3E%3C/svg%3E");
+            animation-duration: 13s, 3.5s;
+            left: 75%;
+        }
+        
+        .leaf6 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d35400' d='M10,10 L90,10 L90,90 L10,90 Z' transform='rotate(45 50 50)'%3E%3C/path%3E%3Cpath fill='%23e67e22' d='M30,30 L70,30 L70,70 L30,70 Z' transform='rotate(45 50 50)'%3E%3C/path%3E%3C/svg%3E");
+            animation-duration: 16s, 4.5s;
+            left: 90%;
+        }
+        
+        /* Tree background elements */
+        .background-trees {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .bg-tree {
+            position: absolute;
+            bottom: 0;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+        }
+        
+        .bg-tree1 {
+            left: 5%;
+            width: 100px;
+            height: 200px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath fill='%2327511f' d='M40,200 L60,200 L60,120 L80,120 L50,80 L80,80 L50,40 L80,40 L50,0 L20,40 L50,40 L20,80 L50,80 L20,120 L40,120 Z'/%3E%3C/svg%3E");
+            transform: scale(1.2);
+        }
+        
+        .bg-tree2 {
+            left: 20%;
+            width: 80px;
+            height: 180px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath fill='%2327511f' d='M35,200 L65,200 L65,140 L85,140 L50,100 L85,100 L50,60 L85,60 L50,20 L85,20 L50,0 L15,20 L50,20 L15,60 L50,60 L15,100 L50,100 L15,140 L35,140 Z'/%3E%3C/svg%3E");
+            transform: scale(0.9);
+        }
+        
+        .bg-tree3 {
+            left: 40%;
+            width: 120px;
+            height: 220px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath fill='%232c5e1a' d='M45,200 L55,200 L55,160 L75,160 L50,130 L70,130 L45,100 L65,100 L40,70 L60,70 L35,40 L55,40 L40,20 L50,0 L45,20 L25,40 L45,40 L20,70 L40,70 L15,100 L35,100 L10,130 L30,130 L5,160 L45,160 Z'/%3E%3C/svg%3E");
+            transform: scale(1.4);
+        }
+        
+        .bg-tree4 {
+            right: 35%;
+            width: 90px;
+            height: 180px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath fill='%2327511f' d='M45,200 L55,200 L55,150 L75,150 L50,120 L75,120 L50,90 L75,90 L50,60 L75,60 L50,30 L75,30 L50,0 L25,30 L50,30 L25,60 L50,60 L25,90 L50,90 L25,120 L50,120 L25,150 L45,150 Z'/%3E%3C/svg%3E");
+            transform: scale(1.1);
+        }
+        
+        .bg-tree5 {
+            right: 15%;
+            width: 100px;
+            height: 200px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath fill='%232c5e1a' d='M40,200 L60,200 L60,120 L80,120 L50,80 L80,80 L50,40 L80,40 L50,0 L20,40 L50,40 L20,80 L50,80 L20,120 L40,120 Z'/%3E%3C/svg%3E");
+            transform: scale(1.3);
+        }
+        
+        .bg-tree6 {
+            right: 5%;
+            width: 70px;
+            height: 170px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath fill='%2327511f' d='M35,200 L65,200 L65,150 L85,150 L50,110 L85,110 L50,70 L85,70 L50,30 L85,30 L50,0 L15,30 L50,30 L15,70 L50,70 L15,110 L50,110 L15,150 L35,150 Z'/%3E%3C/svg%3E");
+            transform: scale(0.95);
+        }
+        
+        /* Morning mist effect */
+        .mist-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 40%, 
+                rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        header {
+            background-image: linear-gradient(135deg, 
+                rgba(44, 94, 26, 1) 0%, 
+                rgba(56, 124, 35, 0.9) 40%,
+                rgba(44, 94, 26, 1) 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(255,255,255,0.05)' d='M0,224L48,202.7C96,181,192,139,288,133.3C384,128,480,160,576,160C672,160,768,128,864,112C960,96,1056,96,1152,117.3C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            opacity: 0.4;
+            z-index: 0;
+            background-size: cover;
+            animation: wavyMove 20s ease-in-out infinite alternate;
+        }
+        
+        @keyframes wavyMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Tree elements */
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 40px;
+            width: 180px;
+            height: 180px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,10 L60,30 L70,25 L65,40 L80,45 L70,55 L85,70 L65,65 L60,85 L50,70 L40,85 L35,65 L15,70 L30,55 L20,45 L35,40 L30,25 L40,30 Z' fill='rgba(215,190,105,0.3)'/%3E%3Crect x='47' y='70' width='6' height='20' fill='rgba(138,79,34,0.5)'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            z-index: 1;
+            opacity: 0.8;
+            transform: rotate(5deg);
+            animation: treeSwing 8s ease-in-out infinite alternate;
+        }
+
+        .header-trees-left {
+            position: absolute;
+            bottom: 0;
+            left: 30px;
+            width: 120px;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M50,10 L65,35 L60,35 L70,50 L60,50 L70,65 L60,65 L70,80 L30,80 L40,65 L30,65 L40,50 L30,50 L40,35 L35,35 Z' fill='rgba(30,58,19,0.5)'/%3E%3Crect x='47' y='80' width='6' height='40' fill='rgba(138,79,34,0.4)'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            z-index: 1;
+            transform: rotate(-8deg) scale(0.9);
+            animation: treeSwing 10s ease-in-out infinite alternate-reverse;
+        }
+
+        .header-trees-right {
+            position: absolute;
+            bottom: -10px;
+            right: 180px;
+            width: 100px;
+            height: 130px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M50,20 C60,20 75,30 75,55 C75,80 60,95 50,95 C40,95 25,80 25,55 C25,30 40,20 50,20 Z' fill='rgba(44,94,26,0.4)'/%3E%3Crect x='47' y='95' width='6' height='25' fill='rgba(138,79,34,0.4)'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            z-index: 1;
+            opacity: 0.9;
+            transform: rotate(5deg) scale(0.85);
+            animation: treeSwing 9s ease-in-out infinite alternate;
+        }
+
+        .mountain-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(215,190,105,0.15)' d='M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,234.7C960,235,1056,181,1152,176C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            z-index: 0;
+            opacity: 1;
+        }
+        
+        @keyframes treeSwing {
+            0% { transform: rotate(-3deg) scale(1); }
+            100% { transform: rotate(3deg) scale(1.05); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            background: rgba(44, 94, 26, 0.3);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(120deg, #ffffff, #f0ead6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                rgba(215,190,105,0) 0%,
+                rgba(215,190,105,1) 50%,
+                rgba(215,190,105,0) 100%);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            position: relative;
+            max-width: 80%;
+            margin: 0 auto;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 5;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .btn {
+            background-image: linear-gradient(135deg, 
+                var(--color-secondary) 0%, 
+                var(--color-secondary-light) 60%, 
+                var(--color-secondary) 100%);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+            justify-content: center;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            height: 65px;
+        }
+        
+        .btn-mountain-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            z-index: -1;
+        }
+        
+        .btn-mountain-backdrop::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 320' preserveAspectRatio='none'%3E%3Cpath fill='rgba(25,55,10,0.35)' d='M0,192L60,197.3C120,203,240,213,360,202.7C480,192,600,160,720,160C840,160,960,192,1080,197.3C1200,203,1320,181,1380,170.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3Cpath fill='rgba(44,94,26,0.25)' d='M0,224L60,234.7C120,245,240,267,360,266.7C480,267,600,245,720,234.7C840,224,960,224,1080,213.3C1200,203,1320,181,1380,170.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        /* Detailed Mountain Drawing */
+        .alpine-mountains {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 35px;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .mountain-1 {
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 55px;
+            height: 35px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath d='M0,60 L20,30 L25,35 L30,25 L35,30 L37,28 L40,32 L42,30 L45,35 L50,20 L53,25 L58,15 L62,20 L65,15 L68,18 L72,10 L75,15 L80,5 L85,10 L90,0 L95,10 L100,5 L105,20 L100,60 Z' fill='%23214a16'/%3E%3Cpath d='M40,32 L42,30 L45,35 L50,20 L53,25 L58,15 L62,20 L65,15 L68,18 L72,10 L75,15 L80,5 L85,10 L90,0 L95,10 L100,5 L105,20 L100,60 L65,60 L40,60 Z' fill='%231a3c11'/%3E%3Cpath d='M75,15 L80,5 L85,10 L90,0 L95,10 L90,15 L85,12 L80,18 L75,15' fill='%23f5f5f5'/%3E%3Cpath d='M58,15 L62,20 L65,15 L68,18 L65,22 L62,20 L58,15' fill='%23f5f5f5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transform: scale(1.3);
+        }
+        
+        .mountain-2 {
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+            width: 70px;
+            height: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 70'%3E%3Cpath d='M0,70 L15,40 L20,45 L25,35 L30,40 L35,38 L38,42 L40,38 L45,43 L50,30 L55,35 L60,25 L65,30 L70,25 L75,28 L80,20 L85,25 L90,15 L95,20 L100,10 L105,20 L110,15 L120,35 L115,70 Z' fill='%23214a16'/%3E%3Cpath d='M50,30 L55,35 L60,25 L65,30 L70,25 L75,28 L80,20 L85,25 L90,15 L95,20 L100,10 L105,20 L110,15 L120,35 L115,70 L50,70 Z' fill='%231a3c11'/%3E%3Cpath d='M90,15 L95,20 L100,10 L105,20 L100,25 L95,20 L90,15' fill='%23f5f5f5'/%3E%3Cpath d='M80,20 L85,25 L90,15 L85,18 L80,20' fill='%23f5f5f5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transform: scale(1.2);
+        }
+        
+        .mountain-3 {
+            position: absolute;
+            bottom: 0;
+            left: 35%;
+            width: 50px;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath d='M0,60 L10,40 L15,43 L20,35 L25,40 L30,35 L35,38 L40,30 L45,35 L50,25 L55,30 L60,20 L65,25 L70,15 L75,20 L80,10 L85,15 L90,5 L95,15 L100,20 L100,60 Z' fill='%23286e1c'/%3E%3Cpath d='M50,25 L55,30 L60,20 L65,25 L70,15 L75,20 L80,10 L85,15 L90,5 L95,15 L100,20 L100,60 L50,60 Z' fill='%23235c18'/%3E%3Cpath d='M70,15 L75,20 L80,10 L85,15 L80,18 L75,15 L70,15' fill='%23f5f5f5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transform: scale(1.1);
+        }
+
+        .foreground-trees {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .tree-1 {
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 15px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 40'%3E%3Cpath d='M12,40 L18,40 L18,20 L30,20 L15,0 L0,20 L12,20 Z' fill='%232d6e1e'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+        }
+        
+        .tree-2 {
+            position: absolute;
+            bottom: 0;
+            right: 25%;
+            width: 10px;
+            height: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 40'%3E%3Cpath d='M12,40 L18,40 L18,20 L30,20 L15,0 L0,20 L12,20 Z' fill='%232d6e1e'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transform: scale(0.8);
+        }
+        
+        .tree-3 {
+            position: absolute;
+            bottom: 0;
+            left: 65%;
+            width: 12px;
+            height: 18px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 40'%3E%3Cpath d='M12,40 L18,40 L18,25 L25,25 L15,15 L5,25 L12,25 L12,30 L20,30 L10,40 L0,30 L12,30 Z' fill='%232d6e1e'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transform: scale(0.9);
+        }
+
+        .sun-element {
+            position: absolute;
+            top: 12px;
+            right: 25px;
+            width: 15px;
+            height: 15px;
+            background: #ffeeaa;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 5px rgba(255, 238, 173, 0.5);
+            z-index: 1;
+            animation: glowPulse 3s infinite alternate;
+        }
+        
+        .sun-element::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: rgba(255, 238, 173, 0.3);
+            border-radius: 50%;
+            z-index: -1;
+            animation: sunRays 3s infinite;
+        }
+        
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 5px 2px rgba(255, 238, 173, 0.5); }
+            100% { box-shadow: 0 0 15px 5px rgba(255, 238, 173, 0.7); }
+        }
+        
+        @keyframes sunRays {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.5); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(138, 79, 34, 0.3);
+        }
+
+        .btn:hover .mountain-1,
+        .btn:hover .mountain-2,
+        .btn:hover .mountain-3 {
+            transform: scale(1.15);
+            transition: transform 0.5s ease;
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(138, 79, 34, 0.7);
+            padding: 8px 16px;
+            border-radius: var(--border-radius-sm);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn i {
+            font-size: 1.4rem;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius-lg);
+            padding: 10px;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(var(--backdrop-blur));
+            -webkit-backdrop-filter: blur(var(--backdrop-blur));
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+        }
+        
+        .tabs-mountain-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .tabs-mountain {
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 90%;
+            height: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 50'%3E%3Cpath d='M0,50 L40,35 L60,40 L80,30 L100,35 L120,25 L140,30 L160,20 L180,25 L200,15 L220,20 L240,10 L260,15 L280,5 L300,10 L320,15 L340,10 L360,15 L380,5 L400,15 L420,10 L440,20 L460,15 L480,25 L500,20 L520,30 L540,25 L560,35 L580,30 L600,40 L620,35 L640,45 L660,40 L680,45 L700,40 L720,45 L740,35 L760,40 L780,30 L800,35 L820,25 L840,30 L860,20 L880,25 L900,15 L920,20 L940,5 L960,10 L980,0 L1000,10 L1000,50 Z' fill='%23eae2cb' opacity='0.2'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.7;
+        }
+        
+        /* Tab indicator animation */
+        .tab-indicator {
+            position: absolute;
+            height: 3px;
+            bottom: -3px;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .tab {
+            padding: 16px 24px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--color-grey);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            flex: 1;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+        }
+
+        .tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--color-primary);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .tab.active {
+            background-color: var(--color-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(44, 94, 26, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .tab.active::before {
+            transform: translateY(0);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            z-index: -1;
+        }
+
+        .tab:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Button icons with animated elements */
+        .btn-icon {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-icon .page-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 8px;
+            background: white;
+            transform: translate(1px, -1px) rotate(45deg);
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover .btn-icon .page-corner {
+            transform: translate(3px, -3px) rotate(45deg);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-card {
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(240, 244, 248, 0.8);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .day-card::before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(30, 58, 112, 0.03) 0%, rgba(30, 58, 112, 0) 60%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .day-card::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.03) 0%, rgba(230, 57, 70, 0) 60%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .day-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(240, 244, 248, 1);
+        }
+
+        .day-card:hover::before, .day-card:hover::after {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .day-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, 
+                var(--color-primary-light) 0%, 
+                var(--color-primary) 20%, 
+                var(--color-surface-2) 100%);
+        }
+
+        .day-title i {
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(138, 79, 34, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(138, 79, 34, 0.2);
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 30px;
+            z-index: 5;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            background-image: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(30, 58, 112, 0.2);
+        }
+
+        .activity {
+            position: relative;
+            padding: 16px 0;
+            padding-left: 30px;
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            transition: var(--transition);
+            border-radius: var(--border-radius);
+            z-index: 2;
+        }
+
+        .activity::before {
+            content: "";
+            position: absolute;
+            left: -21px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px var(--color-primary), 0 0 10px rgba(30, 58, 112, 0.3);
+            z-index: 3;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .activity:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transform: translateX(5px);
+        }
+
+        .activity:hover::before {
+            background-color: var(--color-secondary);
+            transform: translateY(-50%) scale(1.3);
+            box-shadow: 0 0 0 3px var(--color-primary), 0 0 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .activity-time {
+            font-weight: 600;
+            color: var(--color-secondary);
+            font-size: 0.9rem;
+            padding: 4px 8px;
+            background-color: rgba(138, 79, 34, 0.08);
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .activity-description {
+            font-size: 1.1rem;
+            color: var(--color-dark);
+            font-weight: 500;
+        }
+
+        .location-btn {
+            background-color: var(--color-secondary);
+            color: white;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(138, 79, 34, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            top: -50%;
+            left: -50%;
+            transition: var(--transition);
+        }
+
+        .location-btn:hover {
+            background-color: var(--color-primary);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(44, 94, 26, 0.4);
+        }
+
+        .location-btn:hover::before {
+            top: -20%;
+            left: -20%;
+        }
+
+        .location-btn i {
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 0;
+            color: var(--color-grey);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25%;
+            right: 25%;
+            height: 1px;
+            background: linear-gradient(to right, 
+                rgba(0,0,0,0) 0%, 
+                rgba(0,0,0,0.1) 50%, 
+                rgba(0,0,0,0) 100%);
+        }
+
+        /* Modal styles */
+        .location-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 58, 19, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background-color: var(--color-surface);
+            width: 90%;
+            max-width: 900px;
+            height: 85%;
+            max-height: 650px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-header {
+            padding: 20px 25px;
+            background-image: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            color: white;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z'%3E%3C/path%3E%3C/svg%3E");
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .modal-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .location-map {
+            flex: 1;
+            width: 100%;
+            border: none;
+            filter: saturate(1.1) contrast(1.05);
+        }
+
+        .location-info {
+            padding: 18px 25px;
+            background-color: var(--color-surface-2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 3px;
+        }
+
+        .external-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-image: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(138, 79, 34, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .external-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-secondary-light), var(--color-secondary));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .external-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(138, 79, 34, 0.4);
+        }
+
+        .external-link:hover::before {
+            opacity: 1;
+        }
+
+        .external-link i, .external-link span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .activity {
+                grid-template-columns: 70px 1fr auto;
+                gap: 10px;
+            }
+            
+            .activity-time {
+                font-size: 0.8rem;
+            }
+            
+            .activity-description {
+                font-size: 1rem;
+            }
+            
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .modal-content {
+                width: 95%;
+                height: 90%;
+            }
+        }
+        
+        /* Media queries for better responsiveness */
+        @media (min-width: 768px) {
+            .actions {
+                flex-direction: row;
+            }
+            
+            .btn {
+                width: auto;
+                min-width: 220px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                background-image: none;
+            }
+            
+            .tabs, .btn, .actions {
+                display: none;
+            }
+            
+            .tab-content {
+                display: block !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .day-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            header {
+                background: var(--color-primary);
+                color: white;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            header::before {
+                display: none;
+            }
+            
+            .day-card::before {
+                display: none;
+            }
+            
+            .location-btn {
+                display: none;
+            }
+        }
+
+        /* Animation for activities */
+        @keyframes highlightActivity {
+            0% { background-color: rgba(255, 209, 102, 0); }
+            30% { background-color: rgba(255, 209, 102, 0.15); }
+            70% { background-color: rgba(255, 209, 102, 0.15); }
+            100% { background-color: rgba(255, 209, 102, 0); }
+        }
+
+        .highlight {
+            animation: highlightActivity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(255, 209, 102, 0.15);
+        }
+        
+        /* Pulse animation for location button */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(138, 79, 34, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(138, 79, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(138, 79, 34, 0); }
+        }
+        
+        .pulse {
+            animation: pulse 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+        
+        /* Glass morphism effect for cards */
+        .glass-effect {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(var(--backdrop-blur));
+            -webkit-backdrop-filter: blur(var(--backdrop-blur));
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Floating animation for elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="falling-leaves-container">
+        <div class="leaf leaf1"></div>
+        <div class="leaf leaf2"></div>
+        <div class="leaf leaf3"></div>
+        <div class="leaf leaf4"></div>
+        <div class="leaf leaf5"></div>
+        <div class="leaf leaf6"></div>
+    </div>
+    
+    <div class="background-trees">
+        <div class="bg-tree bg-tree1"></div>
+        <div class="bg-tree bg-tree2"></div>
+        <div class="bg-tree bg-tree3"></div>
+        <div class="bg-tree bg-tree4"></div>
+        <div class="bg-tree bg-tree5"></div>
+        <div class="bg-tree bg-tree6"></div>
+    </div>
+    
+    <div class="mist-overlay"></div>
+
+    <div class="container" id="content-to-pdf">
+        <header>
+            <div class="mountain-bg"></div>
+            <div class="header-trees-left"></div>
+            <div class="header-trees-right"></div>
+            <div class="header-content">
+                <h1>Roteiro Campos do Jordão</h1>
+                <h2>Um roteiro melhor que um rascunho ou uma planilha </h2>
+            </div>
+        </header>
+
+        <div class="actions">
+            <button class="btn" id="download-pdf">
+                <div class="btn-mountain-backdrop">
+                    <div class="alpine-mountains">
+                        <div class="mountain-1"></div>
+                        <div class="mountain-2"></div>
+                        <div class="mountain-3"></div>
+                    </div>
+                    <div class="foreground-trees">
+                        <div class="tree-1"></div>
+                        <div class="tree-2"></div>
+                        <div class="tree-3"></div>
+                    </div>
+                </div>
+                <div class="sun-element"></div>
+                <div class="btn-content">
+                    <i class="fas fa-file-pdf"></i>
+                    Baixar PDF
+                </div>
+            </button>
+            <div class="tabs">
+                <div class="tabs-mountain-bg">
+                    <div class="tabs-mountain"></div>
+                </div>
+                <button class="tab active" data-tab="day-24">Dia 24</button>
+                <button class="tab" data-tab="day-25">Dia 25</button>
+                <button class="tab" data-tab="day-26">Dia 26</button>
+                <button class="tab" data-tab="day-27">Dia 27</button>
+                <button class="tab" data-tab="day-28">Dia 28</button>
+            </div>
+        </div>
+
+        <div id="day-24" class="tab-content active">
+            <div class="day-card">
+                <h3 class="day-title"><i class="fas fa-calendar-day"></i> Dia 24 - Chegada</h3>
+                <div class="timeline">
+                    <div class="activity">
+                        <div class="activity-time">04:50</div>
+                        <div class="activity-description">Embarque no voo para São Paulo</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">06:35</div>
+                        <div class="activity-description">Chegada em São Paulo</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">06:50-07:50</div>
+                        <div class="activity-description">McDonald's no aeroporto</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">08:15</div>
+                        <div class="activity-description">Retirada do carro na Localiza</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">09:00</div>
+                        <div class="activity-description">Visita ao Sam's Club</div>
+                        <button class="location-btn" data-name="Sam's Club SP" data-link="https://maps.app.goo.gl/9KYMdrYX2pbCgifo7">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:30</div>
+                        <div class="activity-description">Visita ao Outlet e partida para Campos do Jordão</div>
+                        <button class="location-btn" data-name="Outlet Premium SP" data-link="https://maps.app.goo.gl/aHrVxKbKBUsvw3yg6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:30</div>
+                        <div class="activity-description">Chegada em Campos do Jordão</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:45-13:50</div>
+                        <div class="activity-description">Almoço no Rancho do Tio Lê</div>
+                        <button class="location-btn" data-name="Rancho do Tio Lé" data-link="https://maps.app.goo.gl/7yRnd1iK4ZXFyAEaA">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">15:30</div>
+                        <div class="activity-description">Check-in na Vila Dom Bosco</div>
+                        <button class="location-btn" data-name="Vila Dom Bosco" data-link="https://maps.app.goo.gl/Qu1gEnvoojNGp6zY6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">17:30</div>
+                        <div class="activity-description">Visita ao Parque da Lagoinha</div>
+                        <button class="location-btn" data-name="Parque da Lagoinha" data-link="https://maps.app.goo.gl/n1k6ZjTg8oC8gt2z6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">19:00</div>
+                        <div class="activity-description">Feirinha do Romantik Dalen</div>
+                        <button class="location-btn" data-name="Feirinha do Romantik Dalen" data-link="https://maps.app.goo.gl/aZAuP7QUPBFPk4Gf6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">21:00</div>
+                        <div class="activity-description">Retorno ao hotel</div>
+                        <button class="location-btn" data-name="Vila Dom Bosco" data-link="https://maps.app.goo.gl/Qu1gEnvoojNGp6zY6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day-25" class="tab-content">
+            <div class="day-card">
+                <h3 class="day-title"><i class="fas fa-hiking"></i> Dia 25 - Explorando a Região</h3>
+                <div class="timeline">
+                    <div class="activity">
+                        <div class="activity-time">08:30</div>
+                        <div class="activity-description">Café da manhã</div>
+                        <button class="location-btn" data-name="Vila Dom Bosco" data-link="https://maps.app.goo.gl/Qu1gEnvoojNGp6zY6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:00</div>
+                        <div class="activity-description">Visita ao Parque da Floresta Encantada</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:30</div>
+                        <div class="activity-description">Almoço (local a definir)</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">14:00</div>
+                        <div class="activity-description">Visita ao Romantik Dalen</div>
+                        <button class="location-btn" data-name="Feirinha do Romantik Dalen" data-link="https://maps.app.goo.gl/aZAuP7QUPBFPk4Gf6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">15:00</div>
+                        <div class="activity-description">Ida ao Prana para ver o pôr do sol</div>
+                        <button class="location-btn" data-name="Prana - Pôr do Sol" data-link="https://maps.app.goo.gl/ue9jU13UcVzJ4tBF8">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">19:00</div>
+                        <div class="activity-description">Retorno ao hotel</div>
+                        <button class="location-btn" data-name="Vila Dom Bosco" data-link="https://maps.app.goo.gl/Qu1gEnvoojNGp6zY6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">21:00</div>
+                        <div class="activity-description">Jantar (fondue e rösti)</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day-26" class="tab-content">
+            <div class="day-card">
+                <h3 class="day-title"><i class="fas fa-mountain"></i> Dia 26 - Natureza e Contemplação</h3>
+                <div class="timeline">
+                    <div class="activity">
+                        <div class="activity-time">08:00</div>
+                        <div class="activity-description">Visita ao Mosteiro de São João</div>
+                        <button class="location-btn" data-name="Mosteiro de São João" data-link="https://maps.app.goo.gl/vD4vY3Agw5muY2Cw5">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">09:00</div>
+                        <div class="activity-description">Retorno ao hotel para café da manhã</div>
+                        <button class="location-btn" data-name="Vila Dom Bosco" data-link="https://maps.app.goo.gl/Qu1gEnvoojNGp6zY6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:00</div>
+                        <div class="activity-description">Visita ao Parque Amantikir</div>
+                        <button class="location-btn" data-name="Parque Amantikir" data-link="https://maps.app.goo.gl/zPgz64sqUtLdqsyQ7">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">13:00</div>
+                        <div class="activity-description">Almoço no Rancho do Tio Lê</div>
+                        <button class="location-btn" data-name="Rancho do Tio Lé" data-link="https://maps.app.goo.gl/7yRnd1iK4ZXFyAEaA">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">14:30</div>
+                        <div class="activity-description">Visita ao Bosque do Silêncio</div>
+                        <button class="location-btn" data-name="Bosque do Silêncio" data-link="https://maps.app.goo.gl/6KM3K33YNssgqkY99">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">16:30</div>
+                        <div class="activity-description">Ida ao Pico do Itapeva</div>
+                        <button class="location-btn" data-name="Pico do Itapeva" data-link="https://maps.app.goo.gl/bxn5BWxaM5fhfBqJ9">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">19:00</div>
+                        <div class="activity-description">Retorno ao hotel</div>
+                        <button class="location-btn" data-name="Vila Dom Bosco" data-link="https://maps.app.goo.gl/Qu1gEnvoojNGp6zY6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">21:00</div>
+                        <div class="activity-description">Jantar no Krokodillo</div>
+                        <button class="location-btn" data-name="Restaurante Krokodillo" data-link="https://maps.app.goo.gl/7ke58tX1beksrpTa9">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day-27" class="tab-content">
+            <div class="day-card">
+                <h3 class="day-title"><i class="fas fa-horse"></i> Dia 27 - Diversão ao Ar Livre</h3>
+                <div class="timeline">
+                    <div class="activity">
+                        <div class="activity-time">10:00</div>
+                        <div class="activity-description">Visita ao Horto Florestal</div>
+                        <button class="location-btn" data-name="Horto Florestal" data-link="https://maps.app.goo.gl/xzBHxim3t7n17mPZ7">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:30</div>
+                        <div class="activity-description">Almoço no Beto Perroy Grill</div>
+                        <button class="location-btn" data-name="Beto Perroy Grill" data-link="https://maps.app.goo.gl/uarrqDSQxTfKz4Zk8">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">15:15</div>
+                        <div class="activity-description">Passeio a cavalo no Rancho do Tinho (possível visita com Nadia)</div>
+                        <button class="location-btn" data-name="Rancho do Tinho (passeio a cavalo)" data-link="https://maps.app.goo.gl/sjw6CoPd3BY5zH7a9">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">18:00</div>
+                        <div class="activity-description">Retorno ao hotel</div>
+                        <button class="location-btn" data-name="Vila Dom Bosco" data-link="https://maps.app.goo.gl/Qu1gEnvoojNGp6zY6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">20:00</div>
+                        <div class="activity-description">Passeio no Centro Capivari para comprar chocolates e jantar</div>
+                        <button class="location-btn" data-name="Centro de Capivari (compras e jantar)" data-link="https://maps.app.goo.gl/MGMW4Br67CN4kFSt6">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day-28" class="tab-content">
+            <div class="day-card">
+                <h3 class="day-title"><i class="fas fa-plane-departure"></i> Dia 28 - Retorno</h3>
+                <div class="timeline">
+                    <div class="activity">
+                        <div class="activity-time">10:30</div>
+                        <div class="activity-description">Saída de Campos do Jordão</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:30</div>
+                        <div class="activity-description">Devolução do carro na Localiza</div>
+                        <div></div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">14:00</div>
+                        <div class="activity-description">Voo para Brasília</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Roteiro de viagem para Campos do Jordão | Criado por ArturzinhoNERF</p>
+        </div>
+    </div>
+
+    <!-- Location Modal -->
+    <div class="location-modal" id="locationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Localização</div>
+                <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <iframe class="location-map" id="locationMap" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="location-info">
+                    <div class="info-text">
+                        <div class="info-name" id="locationName"></div>
+                    </div>
+                    <a href="#" class="external-link" id="externalMapLink" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> <span>Abrir no Google Maps</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show corresponding tab content
+                const dayId = tab.getAttribute('data-tab');
+                document.getElementById(dayId).classList.add('active');
+                
+                // Highlight first activity
+                setTimeout(() => {
+                    const firstActivity = document.querySelector(`#${dayId} .activity`);
+                    if (firstActivity) {
+                        firstActivity.classList.add('highlight');
+                        setTimeout(() => {
+                            firstActivity.classList.remove('highlight');
+                        }, 2000);
+                    }
+                }, 100);
+            });
+        });
+        
+        // PDF download functionality
+        document.getElementById('download-pdf').addEventListener('click', () => {
+            // Store the current active tab
+            const activeTab = document.querySelector('.tab.active');
+            const activeTabContent = document.querySelector('.tab-content.active');
+            
+            // Show all tab contents for PDF
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'block';
+            });
+            
+            // Options for PDF
+            const options = {
+                margin: 10,
+                filename: 'Roteiro_Campos_do_Jordao.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Generate PDF
+            html2pdf().set(options).from(document.getElementById('content-to-pdf')).save()
+                .then(() => {
+                    // After PDF is generated, restore the tabs
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    
+                    // Restore active tab
+                    activeTab.classList.add('active');
+                    activeTabContent.classList.add('active');
+                });
+        });
+        
+        // Location Modal functionality
+        const locationModal = document.getElementById('locationModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const locationMap = document.getElementById('locationMap');
+        const locationName = document.getElementById('locationName');
+        const externalMapLink = document.getElementById('externalMapLink');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Open modal when location button is clicked
+        document.querySelectorAll('.location-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const name = btn.getAttribute('data-name');
+                const link = btn.getAttribute('data-link');
+                
+                // Extract Google Maps place ID or coordinates from link
+                let mapSrc;
+                if (link.includes('maps.app.goo.gl')) {
+                    // This is a shortened Google Maps URL, use it directly in an embed
+                    const encodedName = encodeURIComponent(name);
+                    mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1394169797297!2d-46.6373!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${encodedName}!5e0!3m2!1spt-BR!2sbr!4v1682202014039!5m2!1spt-BR!2sbr`;
+                } else {
+                    mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1394169797297!2d-46.6373!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${encodeURIComponent(name)}!5e0!3m2!1spt-BR!2sbr!4v1682202014039!5m2!1spt-BR!2sbr`;
+                }
+                
+                // Set modal content
+                modalTitle.textContent = `Localização: ${name}`;
+                locationName.textContent = name;
+                locationMap.src = mapSrc;
+                externalMapLink.href = link;
+                
+                // Show modal
+                locationModal.style.display = 'flex';
+                
+                // Add class for animation
+                setTimeout(() => {
+                    locationModal.classList.add('show');
+                }, 10);
+            });
+            
+            // Add pulse effect to newly added location buttons
+            btn.classList.add('pulse');
+            setTimeout(() => {
+                btn.classList.remove('pulse');
+            }, 2000);
+        });
+        
+        // Close modal when close button is clicked
+        closeModal.addEventListener('click', () => {
+            locationModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the content
+        locationModal.addEventListener('click', (e) => {
+            if (e.target === locationModal) {
+                locationModal.style.display = 'none';
+            }
+        });
+        
+        // Close modal with escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && locationModal.style.display === 'flex') {
+                locationModal.style.display = 'none';
+            }
+        });
+        
+        // Highlight activity on hover
+        document.querySelectorAll('.activity').forEach(activity => {
+            activity.addEventListener('mouseenter', () => {
+                activity.classList.add('highlight');
+            });
+            
+            activity.addEventListener('mouseleave', () => {
+                activity.classList.remove('highlight');
+            });
+        });
+        
+        // Animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create multiple falling leaves with different delays
+            const leavesContainer = document.querySelector('.falling-leaves-container');
+            const leaves = document.querySelectorAll('.leaf');
+            
+            // Create 30 copies of leaves with random positions and delays
+            for (let i = 0; i < 30; i++) {
+                const leafClass = `leaf${Math.floor(Math.random() * 6) + 1}`;
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf', leafClass);
+                
+                // Random initial position
+                const leftPos = Math.random() * 100;
+                leaf.style.left = `${leftPos}%`;
+                
+                // Random animation delay
+                const delay = Math.random() * 30;
+                leaf.style.animationDelay = `${delay}s`;
+                
+                // Random size
+                const size = 0.5 + Math.random() * 1;
+                leaf.style.transform = `scale(${size})`;
+                
+                leavesContainer.appendChild(leaf);
+            }
+            
+            // Add glass effect to day cards
+            document.querySelectorAll('.day-card').forEach(card => {
+                card.classList.add('glass-effect');
+            });
+            
+            // Add floating effect to some elements
+            document.querySelector('h1').classList.add('float');
+            
+            // Animate activities sequentially
+            const activities = document.querySelectorAll('#day-24 .activity');
+            activities.forEach((activity, index) => {
+                setTimeout(() => {
+                    activity.classList.add('highlight');
+                    setTimeout(() => {
+                        activity.classList.remove('highlight');
+                    }, 1500);
+                }, index * 200);
+            });
+            
+            // Add pulse effect to location buttons sequentially
+            const locationBtns = document.querySelectorAll('.location-btn');
+            locationBtns.forEach((btn, index) => {
+                setTimeout(() => {
+                    btn.classList.add('pulse');
+                    setTimeout(() => {
+                        btn.classList.remove('pulse');
+                    }, 3000);
+                }, 2000 + (index * 100));
+            });
+            
+            // Add gradient text effect to day titles
+            document.querySelectorAll('.day-title').forEach(title => {
+                title.classList.add('gradient-text');
+            });
+            
+            // Create tab indicator animation
+            const tabs = document.querySelectorAll('.tab');
+            const tabsContainer = document.querySelector('.tabs');
+            
+            // Create tab indicator element
+            const indicator = document.createElement('span');
+            indicator.className = 'tab-indicator';
+            tabsContainer.appendChild(indicator);
+            
+            // Function to position the indicator
+            function positionIndicator(activeTab) {
+                if (!activeTab) return;
+                
+                const tabRect = activeTab.getBoundingClientRect();
+                const containerRect = tabsContainer.getBoundingClientRect();
+                
+                indicator.style.width = `${tabRect.width * 0.8}px`;
+                indicator.style.left = `${tabRect.left - containerRect.left + (tabRect.width * 0.1)}px`;
+            }
+            
+            // Initialize indicator position
+            positionIndicator(document.querySelector('.tab.active'));
+            
+            // Update indicator on tab click
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    positionIndicator(tab);
+                });
+            });
+            
+            // Update indicator on window resize
+            window.addEventListener('resize', () => {
+                positionIndicator(document.querySelector('.tab.active'));
+            });
+        });
+    </script>
+</body>
+</html>
