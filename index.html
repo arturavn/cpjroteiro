@@ -798,6 +798,44 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             color: var(--color-primary);
+        }
+        
+        .activity-price {
+            font-size: 0.9rem;
+            color: var(--color-secondary);
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .price-tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(215, 190, 105, 0.2);
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+        
+        .price-tag i {
+            margin-right: 4px;
+            font-size: 0.8rem;
+            color: var(--color-secondary);
+        }
+        
+        .price-total {
+            margin-top: 20px;
+            background: linear-gradient(135deg, rgba(44, 94, 26, 0.1), rgba(138, 79, 34, 0.1));
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: right;
+            font-weight: 600;
+            color: var(--color-secondary);
+            border: 1px dashed rgba(138, 79, 34, 0.3);
+            box-shadow: var(--shadow-sm);
             margin-bottom: 25px;
             padding-bottom: 15px;
             display: flex;
@@ -1471,7 +1509,12 @@
                     </div>
                     <div class="activity">
                         <div class="activity-time">10:00</div>
-                        <div class="activity-description">Visita ao Parque da Floresta Encantada</div>
+                        <div class="activity-description">
+                            Visita ao Parque da Floresta Encantada
+                            <div class="activity-price">
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Inteira: R$ 10,00</span>
+                            </div>
+                        </div>
                         <div></div>
                     </div>
                     <div class="activity">
@@ -1488,7 +1531,12 @@
                     </div>
                     <div class="activity">
                         <div class="activity-time">15:00</div>
-                        <div class="activity-description">Ida ao Prana para ver o pôr do sol</div>
+                        <div class="activity-description">
+                            Ida ao Prana para ver o pôr do sol
+                            <div class="activity-price">
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Inteira: R$ 50,00</span>
+                            </div>
+                        </div>
                         <button class="location-btn" data-name="Prana - Pôr do Sol" data-link="https://maps.app.goo.gl/ue9jU13UcVzJ4tBF8">
                             <i class="fas fa-map-marker-alt"></i>
                         </button>
@@ -1505,6 +1553,9 @@
                         <div class="activity-description">Jantar (fondue e rösti)</div>
                         <div></div>
                     </div>
+                </div>
+                <div class="price-total">
+                    <i class="fas fa-coins"></i> Total de passeios: R$ 60,00 (inteira)
                 </div>
             </div>
         </div>
@@ -1529,7 +1580,13 @@
                     </div>
                     <div class="activity">
                         <div class="activity-time">10:00</div>
-                        <div class="activity-description">Visita ao Parque Amantikir</div>
+                        <div class="activity-description">
+                            Visita ao Parque Amantikir
+                            <div class="activity-price">
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Inteira: R$ 80,00</span>
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Meia: R$ 40,00</span>
+                            </div>
+                        </div>
                         <button class="location-btn" data-name="Parque Amantikir" data-link="https://maps.app.goo.gl/zPgz64sqUtLdqsyQ7">
                             <i class="fas fa-map-marker-alt"></i>
                         </button>
@@ -1543,14 +1600,26 @@
                     </div>
                     <div class="activity">
                         <div class="activity-time">14:30</div>
-                        <div class="activity-description">Visita ao Bosque do Silêncio</div>
+                        <div class="activity-description">
+                            Visita ao Bosque do Silêncio
+                            <div class="activity-price">
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Inteira: R$ 30,00</span>
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Meia: R$ 15,00</span>
+                            </div>
+                        </div>
                         <button class="location-btn" data-name="Bosque do Silêncio" data-link="https://maps.app.goo.gl/6KM3K33YNssgqkY99">
                             <i class="fas fa-map-marker-alt"></i>
                         </button>
                     </div>
                     <div class="activity">
                         <div class="activity-time">16:30</div>
-                        <div class="activity-description">Ida ao Pico do Itapeva</div>
+                        <div class="activity-description">
+                            Ida ao Pico do Itapeva
+                            <div class="activity-price">
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Inteira: R$ 50,00</span>
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Meia: R$ 25,00</span>
+                            </div>
+                        </div>
                         <button class="location-btn" data-name="Pico do Itapeva" data-link="https://maps.app.goo.gl/bxn5BWxaM5fhfBqJ9">
                             <i class="fas fa-map-marker-alt"></i>
                         </button>
@@ -1570,6 +1639,9 @@
                         </button>
                     </div>
                 </div>
+                <div class="price-total">
+                    <i class="fas fa-coins"></i> Total de passeios: R$ 160,00 (inteira) / R$ 80,00 (meia)
+                </div>
             </div>
         </div>
 
@@ -1579,7 +1651,13 @@
                 <div class="timeline">
                     <div class="activity">
                         <div class="activity-time">10:00</div>
-                        <div class="activity-description">Visita ao Horto Florestal</div>
+                        <div class="activity-description">
+                            Visita ao Horto Florestal
+                            <div class="activity-price">
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Inteira: R$ 18,00</span>
+                                <span class="price-tag"><i class="fas fa-ticket-alt"></i> Meia: R$ 9,00</span>
+                            </div>
+                        </div>
                         <button class="location-btn" data-name="Horto Florestal" data-link="https://maps.app.goo.gl/xzBHxim3t7n17mPZ7">
                             <i class="fas fa-map-marker-alt"></i>
                         </button>
@@ -1613,6 +1691,9 @@
                         </button>
                     </div>
                 </div>
+                <div class="price-total">
+                    <i class="fas fa-coins"></i> Total de passeios: R$ 18,00 (inteira) / R$ 9,00 (meia)
+                </div>
             </div>
         </div>
 
@@ -1639,6 +1720,10 @@
             </div>
         </div>
 
+        <div class="price-total" style="margin-bottom: 30px; font-size: 1.2rem; text-align: center; background: linear-gradient(135deg, rgba(44, 94, 26, 0.15), rgba(138, 79, 34, 0.15)); padding: 20px;">
+            <i class="fas fa-money-bill-wave"></i> Total geral de passeios: <strong>R$ 238,00</strong> (inteira) / <strong>R$ 139,00</strong> (meia)
+        </div>
+        
         <div class="footer">
             <p>Roteiro de viagem para Campos do Jordão | Criado por ArturzinhoNERF</p>
         </div>
